@@ -36,17 +36,6 @@ const $page = new PageModule({
     let song = {};
     Object.keys(obj).map(key => song[key] = decodeURIComponent(obj[key]));
 
-    // song = {
-    //   "song_url": "http://ws.stream.qqmusic.qq.com/C100004RDAU22ZbmOh.m4a?fromtag=0&guid=0",
-    //   "song_mid": "004RDAU22ZbmOh",
-    //   "song_name": "My Days",
-    //   "song_orig": "鈴木このみ",
-    //   "album_min": "https://y.gtimg.cn/music/photo_new/T002R90x90M000000AfsBH3tSkmC.jpg",
-    //   "album_big": "https://y.gtimg.cn/music/photo_new/T002R300x300M000000AfsBH3tSkmC.jpg",
-    //   "album_mid": "000AfsBH3tSkmC",
-    //   "album_name": "My Days"
-    // };
-
     this.setData({
       song
     });
