@@ -1,0 +1,50 @@
+<!-- 引入模板 start -->
+<import src="/template/public/footer-player.wxml"/>
+<!-- 引入模板 end -->
+
+<!--pages/like/index.wxml-->
+<view class="container">
+  <view class="ct-header">
+    <!-- 背景图 start -->
+    <image src="{{cover}}" mode="widthFix" class="sheet-bg" binderror="coverError"></image>
+    <!-- 背景图 end -->
+
+    <view class="shadow-view"></view>
+
+    <!-- 歌单信息 start -->
+    <view class="sheet-info">
+      <image src="{{cover}}" binderror="coverError"></image>
+      <view>
+        <text class="sheet-title">我喜欢的音乐</text>
+        <view class="sheet-creator">
+          <image src="{{userInfo.avatarUrl}}"></image>
+          <text>{{userInfo.nickName}}</text>
+        </view>
+      </view>
+    </view>
+    <!-- 歌单信息 end -->
+  </view>
+
+  <!-- 歌曲列表 start -->
+  <view class="ct-bottom">
+    <view class="list-header">
+      <image src="/images/icon/list.png"></image>
+      <text class="header-title">全部歌曲</text>
+      <text>(共{{likeList.length}}首)</text>
+    </view>
+    <view class="list-body" bindtap="onPlayAudio" data-sheet="{{likeList}}">
+      <view class="list-item" wx:for="{{likeList}}" data-song="{{item}}" wx:key="{{item.song_mid}}">
+        <view class="index" data-song="{{item}}">{{index + 1}}</view>
+        <view class="song-info" data-song="{{item}}">
+          <text data-song="{{item}}">{{item.song_name}}</text>
+          <text data-song="{{item}}">{{item.song_orig}} - {{item.song_name}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+  <!-- 歌曲列表 end -->
+
+  <!-- 底部播放器 start -->
+  <template is="footer-player" data="{{...playerSong}}"/>
+  <!-- 底部播放器 end -->
+</view>

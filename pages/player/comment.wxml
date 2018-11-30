@@ -1,0 +1,51 @@
+<!--pages/player/comment.wxml-->
+<view class="container">
+  <!-- 歌曲信息 start -->
+  <view class="ct-header">
+    <image src="{{song.album_min}}" binderror="albumError"></image>
+    <view>
+      <text class="song-name text-over">{{song.song_name}}</text>
+      <text class="singer">{{song.song_orig}}</text>
+    </view>
+  </view>
+  <!-- 歌曲信息 end -->
+
+  <!-- 评论 start -->
+  <view class="ct-body">
+    <view class="comment-header">精彩评论({{total}})</view>
+    <scroll-view class="comment-scroll-view" scroll-y bindscrolltolower="loadMore">
+      <view class="comment-list">
+        <view class="list-item" wx:for="{{commentList}}">
+          <!-- 用户信息 start -->
+          <view class="item-user">
+            <image src="{{item.user.avatarUrl}}"></image>
+            <view>
+              <text class="nickname">{{item.user.nickName}}</text>
+              <text class="time">{{item.time}}</text>
+            </view>
+          </view>
+          <!-- 用户信息 end -->
+
+          <!-- 评论内容 start -->
+          <view class="item-content">
+            <text>{{item.content}}</text>
+          </view>
+          <!-- 评论内容 end -->
+        </view>
+      </view>
+    </scroll-view>
+  </view>
+  <!-- 评论 end -->
+
+  <!-- 发表评论 start -->
+  <form class="form clearfix" bindsubmit="comment">
+    <button class="float-rgt" form-type="submit">发送</button>
+    <textarea value="{{comment}}"
+              placeholder="{{commentTip}}"
+              placeholder-class="placeholder"
+              auto-height
+              fixed
+              name="content"></textarea>
+  </form>
+  <!-- 发表评论 end -->
+</view>

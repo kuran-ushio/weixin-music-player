@@ -1,0 +1,103 @@
+@import "/template/public/footer-player.wxss";
+
+/* pages/like/index.wxss */
+.container{
+  overflow: hidden;
+  position: relative;
+}
+.sheet-bg{
+  position: absolute;
+  z-index: -2;
+  width: 100%;
+  filter: blur(20px);
+}
+.shadow-view{
+  position: absolute;
+  z-index: -1;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0,0,0,.35);
+}
+/* 歌单信息 start */
+.sheet-info{
+  display: flex;
+  padding: 70rpx 0 100rpx 40rpx;
+}
+.sheet-info>image{
+  width: 260rpx;
+  height: 260rpx;
+  margin-right: 36rpx;
+}
+.sheet-title{
+  display: block;
+  height: 40px;
+  margin-bottom: 20px;
+  line-height: 40px;
+  color: #fff;
+  font-size: 16px;
+}
+.sheet-creator image{
+  width: 28px;
+  height: 28px;
+  margin-right: 10px;
+  vertical-align: middle;
+  border-radius: 50%;
+}
+.sheet-creator text{
+  color: #dcdcde;
+  font-size: 12px;
+}
+/* 歌单信息 end */
+
+/* 歌曲列表 start */
+.ct-bottom{
+  min-height: calc(100vh - 430rpx - 50px);
+  padding-bottom: 50px;
+  background: #fff;
+  border-radius: 10px;
+}
+.list-header{
+  height: 46px;
+  padding-left: 16px;
+  border-bottom: 1px solid #e6e6e6;
+  line-height: 46px;
+  color: #999;
+}
+.list-header image{
+  width: 20px;
+  height: 20px;
+  margin: -4px 16px 0 0;
+  vertical-align: middle;
+}
+.list-header .header-title{
+  font-size: 16px;
+  color: #333;
+}
+.list-item{
+  display: flex;
+  height: 56px;
+}
+.list-item .index{
+  width: 54px;
+  text-align: center;
+  line-height: 56px;
+  color: #999;
+  font-weight: 600;
+}
+.list-item .song-info{
+  flex: 1;
+  padding: 6px 0;
+  border-bottom: 1px solid #f3f3f3;
+}
+.song-info text{
+  display: block;
+  height: 28px;
+  line-height: 28px;
+}
+.song-info text:nth-child(2){
+  font-size: 10px;
+  height: 16px;
+  line-height: 16px;
+  color: #808080;
+}
+/* 歌曲列表 end */

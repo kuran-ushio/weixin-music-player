@@ -1,0 +1,14 @@
+<template name="song-list">
+  <view class="song-list" bindtap="onPlayAudio" data-sheet="{{songs}}">
+    <template is="song" wx:for="{{songs}}" wx:for-item="song" data="{{song}}"/>
+  </view>
+</template>
+
+<template name="song">
+  <view class="song-item clearfix" data-song="{{song}}">
+    <view class="item-lf float-lf">
+      <text class="text-over" data-song="{{song}}">{{song.song_name}}</text>
+      <text class="text-over" data-song="{{song}}">{{song.song_orig}} - {{song.album_name ? song.album_name : song.song_name}}</text>
+    </view>
+  </view>
+</template>

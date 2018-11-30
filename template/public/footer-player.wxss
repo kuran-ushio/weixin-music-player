@@ -1,0 +1,38 @@
+/* 底部播放器 */
+.footer-player{
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 999;
+  height: 38px;
+  padding: 6px;
+  border-top: 1px solid #e6e6e6;
+  background: #fff;
+}
+.player-album{
+  margin-right: 6px;
+}
+.player-album image{
+  display: block;
+  width: 40px;
+  border-radius: 4px;
+}
+.player-info{
+  overflow: hidden;
+  padding-top: 3px;
+}
+.player-info text{
+  display: block;
+  width: 100%;
+  font-size: 12px;
+}
+.player-info text:last-child{
+  color: #808080;
+}
+.player-btn image{
+  width: 28px;
+  height: 28px;
+  padding: 5px;
+  vertical-align: middle;
+}

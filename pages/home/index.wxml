@@ -1,0 +1,80 @@
+<!-- 引入模板 start -->
+<import src="/template/sheet/sheet.wxml"/>
+<import src="/template/public/footer-player.wxml"/>
+<import src="/template/underscore/underscore.wxml"/>
+<!-- 引入模板 end -->
+
+<!-- 引入模块 start -->
+<wxs src="../../common/function.wxs" module="functions"/>
+<!-- 引入模块 end -->
+
+<!--pages/home/index.wxml-->
+<view class="container">
+  <!-- header start -->
+  <view class="header">
+    <navigator url="/pages/home/index" hover-class="on" class="on">
+      <text>推荐</text>
+    </navigator>
+    <navigator url="/pages/search/index" hover-class="on">
+      <text>搜索</text>
+    </navigator>
+    <navigator url="/pages/like/index" hover-class="on">
+      <text>我的</text>
+    </navigator>
+  </view>
+  <!-- header end -->
+
+  <!-- tab-container start -->
+  <view class="tab-container">
+    <!-- banner start -->
+    <view class="home-banner">
+      <view class="banner">
+        <swiper indicator-dots
+                indicator-color="#fff"
+                indicator-active-color="#e6473b"
+                autoplay>
+          <swiper-item wx:for="{{banner}}"
+                        wx:for-item="bannerItem"
+                        bindtap="actionBanner"
+                        data-action="{{bannerItem}}">
+            <image src="{{bannerItem.img}}"></image>
+          </swiper-item>
+        </swiper>
+      </view>
+    </view>
+    <!-- banner end -->
+
+    <!-- 图标导航入口 start -->
+    <view class="entry">
+      <navigator url="{{functions.sheetUrl(item)}}"
+                  hover-class="none"
+                  wx:for="{{region}}">
+        <view>
+          <image src="/images/icon/{{item.icon}}.png" mode="widthFix"></image>
+        </view>
+        <text>{{item.name}}</text>
+      </navigator>
+    </view>
+    <!-- 图标导航入口 end -->
+
+    <!-- 歌单列表 start -->
+    <view class="home-sheet">
+      <template is="sheet-list"
+                wx:for="{{sheets}}"
+                wx:for-item="sheet"
+                data="{{sheet}}"/>
+    </view>
+    <!-- 歌单列表 end -->
+
+    <!-- 底线 start -->
+    <view class="home-underscore">
+      <template is="underscore"/>
+    </view>
+    <!-- 底线 end -->
+  </view>
+  <!-- tab-container end -->
+
+  <!-- 底部播放器 start -->
+  <template is="footer-player" data="{{...playerSong}}"/>
+  <!-- 底部播放器 end -->
+</view>

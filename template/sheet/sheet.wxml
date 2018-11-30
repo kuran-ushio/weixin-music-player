@@ -1,0 +1,24 @@
+<!-- 引入模块 start -->
+<wxs src="../../common/function.wxs" module="functions"/>
+<!-- 引入模块 end -->
+
+<!-- 歌曲列表 -->
+<template name="sheet-list">
+  <view class="sheet-list" data-sheet="{{sheet.songs}}" bindtap="onPlayAudio">
+    <navigator url="{{functions.sheetUrl(sheet)}}" class="sl-header" hover-class="none">
+      <text>{{sheet.name}}</text>
+      <image src="/images/icon/more.png" mode="widthFix"></image>
+    </navigator>
+    <view class="sl-body">
+      <template is="sheet" wx:for="{{sheet.songs}}" wx:for-item="song" data="{{song}}"/>
+    </view>
+  </view>
+</template>
+
+<!-- 歌曲视图 -->
+<template name="sheet">
+  <view class="sheet-item item-view-3">
+    <image src="{{song.album_min}}" mode="widthFix" data-song="{{song}}" binderror="albumError"></image>
+    <text data-song="{{song}}">{{song.song_name}}</text>
+  </view>
+</template>

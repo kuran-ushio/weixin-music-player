@@ -1,0 +1,41 @@
+<!-- 引入模板 start -->
+<import src="/template/public/footer-player.wxml"/>
+<import src="song.wxml"/>
+<import src="/template/underscore/underscore.wxml"/>
+<!-- 引入模板 end -->
+
+<!--pages/search/list.wxml-->
+<view class="container">
+  <!-- header start -->
+  <view class="header">
+    <form class="clearfix">
+      <input class="float-lf"
+              value="{{words}}"
+              confirm-type="搜索"
+              placeholder="歌曲名称"
+              placeholder-class="input-style"
+              focus
+              bindconfirm="searchData"/>
+      <button class="float-rgt" form-type="reset">
+        <image src="/images/icon/delete.png" mode="widthFix"></image>
+      </button>
+    </form>
+  </view>
+  <!-- header end -->
+
+  <!-- 搜索结果列表 start -->
+  <scroll-view class="result-list" scroll-y bindscrolltolower="loadMore">
+    <template is="song-list" data="{{songs}}"/>
+
+    <!-- 底线 start -->
+    <view class="home-underscore">
+      <template is="underscore"/>
+    </view>
+    <!-- 底线 end -->
+  </scroll-view>
+  <!-- 搜索结果列表 end -->
+
+  <!-- 底部播放器 start -->
+  <template is="footer-player" data="{{...playerSong}}"/>
+  <!-- 底部播放器 end -->
+</view>

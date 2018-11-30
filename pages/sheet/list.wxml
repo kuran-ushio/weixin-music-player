@@ -1,0 +1,26 @@
+<!-- 引入模板 start -->
+<import src="/template/sheet/sheet.wxml"/>
+<import src="/template/public/footer-player.wxml"/>
+<import src="/template/underscore/underscore.wxml"/>
+<!-- 引入模板 end -->
+
+<!--pages/sheet/list.wxml-->
+<view class="container">
+  <!-- 歌单列表 start -->
+  <scroll-view class="sheet-list" scroll-y bindscrolltolower="loadMore">
+    <view class="sheet-scroll-view" bindtap="onPlayAudio" data-sheet="{{songs}}">
+      <template is="sheet" wx:for="{{songs}}" wx:for-item="song" data="{{song}}"/>
+    </view>
+    
+    <!-- 底线 start -->
+    <view class="home-underscore">
+      <template is="underscore"/>
+    </view>
+    <!-- 底线 end -->
+  </scroll-view>
+  <!-- 歌单列表 end -->
+
+  <!-- 底部播放器 start -->
+  <template is="footer-player" data="{{...playerSong}}"/>
+  <!-- 底部播放器 end -->
+</view>

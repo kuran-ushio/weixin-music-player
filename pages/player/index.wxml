@@ -1,0 +1,113 @@
+<!-- 引入模块 start -->
+<wxs src="../../common/function.wxs" module="functions"/>
+<!-- 引入模块 end -->
+
+<!--pages/player/index.wxml-->
+<view class="container">
+  <!-- 背景图 start -->
+  <image src="{{playerSong.album_big}}" class="player-bg" binderror="albumError"></image>
+  <!-- 背景图 end -->
+  <view class="ct-player">
+    <view class="ct-top">
+      <view class="ct-top-swiper">
+        <swiper class="switch-swiper-view" skip-hidden-item-layout>
+          <!-- 封面 start -->
+          <swiper-item class="player-cover">
+            <view class="play {{playerSong.paused === false || 'pause'}}">
+              <image class="cover-photo" src="{{playerSong.album_min}}" binderror="albumError"></image>
+              <image src="/images/cd_cover.png" class="cover-bg"></image>
+            </view>
+          </swiper-item>
+          <!-- 封面 end -->
+
+          <!-- 歌词 start -->
+          <swiper-item class="player-lyrics">
+            <swiper vertical
+                    display-multiple-items="{{multiple}}"
+                    duration="{{duration}}"
+                    current="{{current}}">
+              <swiper-item class="lyrics-swiper-item {{index === currentIndex && 'on'}}" wx:for="{{lyrics}}" wx:key="{{item.millisecond}}">{{item.text}}</swiper-item>
+            </swiper>
+          </swiper-item>
+          <!-- 歌词 end -->
+        </swiper>
+      </view>
+
+      <!-- 操作菜单 start -->
+      <view class="options-menu" bindtap="musicTap">
+        <image src="/images/icon/menu-{{liked ? 'like-fill' : 'like'}}.png" data-method="like"></image>
+        <image src="/images/icon/menu-download.png" data-method="download"></image>
+        <image src="/images/icon/menu-comment.png" data-method="comment"></image>
+        <image src="/images/icon/menu-more.png" catchtap="showMoreMenu"></image>
+      </view>
+      <!-- 操作菜单 end -->
+    </view>
+    <view class="ct-bottom">
+      <!-- 播放进度条 start -->
+      <view class="slider">
+        <text>{{functions.toSongTime(playerSong.currentTime) || '00:00'}}</text>
+        <slider max="{{~~playerSong.duration || 0}}"
+                value="{{~~playerSong.currentTime || 0}}"
+                step="1"
+                block-size="16"
+                backgroundColor="rgba(191,191,191,.5)"
+                activeColor="#e6473b"
+                bindchange="setSeek"
+                bindchanging="setSeek"/>
+        <text>{{functions.toSongTime(playerSong.duration) || '00:00'}}</text>
+      </view>
+      <!-- 播放进度条 end -->
+
+      <!-- 播放菜单 start -->
+      <view class="player-menu" bindtap="musicTap">
+        <image src="/images/icon/player-{{loopMode.icon || 'all-repeat'}}.png" catchtap="switchLoopMode" data-method="mode"></image>
+        <image src="/images/icon/player-prev.png" data-method="prev"></image>
+        <image src="/images/icon/player-{{playerSong.paused === false ? 'pause' : 'play'}}.png" data-method="play"></image>
+        <image src="/images/icon/player-next.png" data-method="next"></image>
+        <image src="/images/icon/player-list.png" catchtap="showPlayList"></image>
+      </view>
+      <!-- 播放菜单 end -->
+    </view>
+
+    <!-- 更多菜单 start -->
+    <view class="player-menu-more {{showMoreMenu && 'show'}}">
+      <view class="menu-header clearfix">
+        <text>歌曲: {{playerSong.song_name}}</text>
+        <image src="/images/icon/menu-exit.png" class="float-rgt" catchtap="showMoreMenu"></image>
+      </view>
+      <view class="menu-body">
+        <view class="menu-item">
+          <image src="/images/icon/menu-singer.png"></image>
+          <text>歌手: {{playerSong.song_orig}}</text>
+        </view>
+        <view class="menu-item">
+          <image src="/images/icon/menu-album.png"></image>
+          <text>专辑: {{playerSong.album_name}}</text>
+        </view>
+      </view>
+    </view>
+    <!-- 更多菜单 end -->
+
+    <!-- 播放列表 start -->
+    <view class="player-playlist {{showPlayList && 'show'}}">
+      <view class="list-header clearfix">
+        <view class="player-mode float-lf" bindtap="switchLoopMode">
+          <image src="/images/icon/menu-{{loopMode.icon || 'all-repeat'}}.png"></image>
+          <text>{{loopMode.name || '列表循环'}} ( {{playerSheet.length}} )</text>
+        </view>
+        <view class="float-rgt">
+          <image src="/images/icon/empty.png" bindtap="emptyPlaySheet"></image>
+          <image src="/images/icon/menu-exit.png" bindtap="showPlayList"></image>
+        </view>
+      </view>
+      <view class="list-body" bindtap="onPlayAudio" data-sheet="{{playerSheet}}">
+        <view class="list-item {{playerSong.song_mid === item.song_mid && 'on'}}" wx:for="{{playerSheet}}">
+          <image src="/images/icon/menu-sound.png"></image>
+          <view class="text-over" data-song="{{item}}">{{item.song_name}}<text data-song="{{item}}"> - {{item.song_orig}}</text></view>
+          <image src="/images/icon/menu-close.png" catchtap="delPlaySong" data-select="{{item}}"></image>
+        </view>
+      </view>
+    </view>
+    <!-- 播放列表 end -->
+  </view>
+</view>

@@ -1,0 +1,18 @@
+{
+  "pages": [
+    "pages/home/index",
+    "pages/sheet/list",
+    "pages/player/index",
+    "pages/player/comment",
+    "pages/search/index",
+    "pages/search/list",
+    "pages/like/index",
+    "pages/start/index"
+  ],
+  "window": {
+    "navigationBarBackgroundColor": "#e6473b"
+  },
+  "requiredBackgroundModes": [
+    "audio"
+  ]
+}

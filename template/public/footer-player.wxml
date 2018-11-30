@@ -1,0 +1,15 @@
+<!-- 底部播放器 -->
+<template name="footer-player">
+  <navigator url="/pages/player/index?name={{song_name}}&mid={{song_mid}}" hover-class="none" class="footer-player clearfix">
+    <view class="player-album float-lf">
+      <image src="{{album_min || '/images/default_album.jpg'}}" mode="widthFix" binderror="albumError"></image>
+    </view>
+    <view class="player-btn float-rgt">
+      <image src="/images/icon/{{paused === false ? 'pause' : 'play'}}.png" catchtap="musicTap" data-method="play"></image>
+    </view>
+    <view class="player-info">
+      <text class="text-over">{{song_name || '暂无歌曲播放'}}</text>
+      <text>{{song_orig || '未知歌手'}}</text>
+    </view>
+  </navigator>
+</template>

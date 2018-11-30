@@ -1,0 +1,44 @@
+<!-- 引入模板 start -->
+<import src="/template/public/footer-player.wxml"/>
+<!-- 引入模板 end -->
+
+<!--pages/search/index.wxml-->
+<view class="container">
+  <!-- header start -->
+  <view class="header">
+    <view class="search-box">
+      <form class="clearfix" bindsubmit="submitToList">
+        <input class="float-lf"
+                value="{{words}}"
+                confirm-type="搜索"
+                placeholder="歌曲名称"
+                placeholder-class="input-style"
+                focus
+                bindconfirm="confirmToList"
+                name="keywords"/>
+        <button form-type="submit" class="float-rgt">
+          <image src="/images/icon/search.png"></image>
+        </button>
+      </form>
+    </view>
+  </view>
+  <!-- header end -->
+
+  <!-- 历史记录 start -->
+  <view class="history">
+    <view class="history-header clearfix">
+      <text class="float-lf">历史记录</text>
+      <button class="float-rgt" hover-class="on" bindtap="clearHistory">
+        <image src="/images/icon/empty.png" mode="widthFix"></image>
+      </button>
+    </view>
+    <view class="history-body clearfix">
+      <navigator url="list?keywords={{item.content}}" wx:for="{{history}}">{{item.content}}</navigator>
+    </view>
+  </view>
+  <!-- 历史记录 end -->
+
+  <!-- 底部播放器 start -->
+  <template is="footer-player" data="{{...playerSong}}"/>
+  <!-- 底部播放器 end -->
+</view>

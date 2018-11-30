@@ -1,0 +1,110 @@
+/* pages/player/comment.wxss */
+page{
+  background: #f3f3f3;
+}
+
+/* 歌曲信息 start */
+.ct-header{
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  background: #fff;
+}
+.ct-header image{
+  width: 74px;
+  height: 74px;
+  margin-right: 10px;
+  border-radius: 4px;
+}
+.ct-header view{
+  width: calc(100% - 84px);
+}
+.ct-header .song-name{
+  display: block;
+  font-size: 16px;
+}
+.ct-header .singer{
+  display: block;
+  height: 26px;
+  font-size: 12px;
+  line-height: 26px;
+  color: #507daf;
+}
+/* 歌曲信息 end */
+
+/* 评论 start */
+.ct-body{
+  padding-bottom: 44px;
+}
+.comment-header{
+  height: 26px;
+  padding-left: 10px;
+  line-height: 26px;
+  color: #616161;
+}
+.comment-scroll-view{
+  height: calc(100vh - 165px);
+  background: #fff;
+}
+.list-item{
+  padding: 12px 0 0 12px;
+}
+.item-user{
+  display: flex;
+  align-items: center;
+}
+.item-user image{
+  width: 32px;
+  height: 32px;
+  margin-right: 12px;
+  border-radius: 50%;
+}
+.item-user view{
+  flex: 1;
+  font-size: 12px;
+  color: #666;
+}
+.item-user view .time{
+  display: block;
+  margin-top: 4px;
+  font-size: 9px;
+  color: #999;
+}
+.item-content{
+  margin-left: 44px;
+  padding: 4px 0;
+  border-bottom: 1px solid #f3f3f3;
+  line-height: 24px;
+}
+/* 评论 end */
+
+/* 发表评论 start */
+.form{
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 999;
+  padding: 10px 0 10px 10px;
+  border-top: 1px solid #f3f3f3;
+  background: #fff;
+}
+.form textarea{
+  width: calc(100% - 60px);
+  min-height: 22px;
+  border-bottom: 1px solid #d9d9d9;
+}
+.placeholder{
+  color: #ccc;
+}
+.form button{
+  width: 52px;
+  height: 24px;
+  margin: 0;
+  padding: 0;
+  font-size: 14px;
+  color: #ccc;
+  line-height: 28px;
+  background: transparent;
+}
+/* 发表评论 end */

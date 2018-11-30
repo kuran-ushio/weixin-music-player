@@ -1,0 +1,27 @@
+button::after{
+  border: none;
+}
+
+/* 浮动与清除浮动 */
+.float-lf{
+  float: left;
+}
+.float-rgt{
+  float: right;
+}
+.clearfix::after{
+  display: block;
+  content: "";
+  clear: both;
+}
+/* 文本溢出省略 */
+.text-over{
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+page{
+  font-size: 14px;
+  color: #333;
+}

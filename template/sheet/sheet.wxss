@@ -1,0 +1,40 @@
+/* 歌单列表 */
+.sheet-list{
+  margin-top: 4px;
+}
+.sl-header{
+  height: 48px;
+  line-height: 48px;
+  font-size: 16px;
+  font-weight: 600;
+}
+.sl-header image{
+  width: 16px;
+  margin: 0 0 4px 4px;
+  vertical-align: middle;
+}
+.sl-body{
+  display: flex;
+  flex-wrap: wrap;
+}
+.item-view-3{
+  width: 32%;
+  margin-right: 2%;
+}
+.item-view-3:nth-child(3n){
+  margin-right: 0;
+}
+.sheet-item{
+  margin-bottom: 20px;
+}
+.sheet-item image{
+  display: block;
+  width: 100%;
+  border-radius: 4px;
+}
+.sheet-item text{
+  display: block;
+  max-height: 32px;
+  padding-top: 8px;
+  font-size: 12px;
+}

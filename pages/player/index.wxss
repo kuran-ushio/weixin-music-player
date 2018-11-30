@@ -1,0 +1,276 @@
+/* pages/player/index.wxss */
+.container{
+  overflow: hidden;
+  position: relative;
+}
+.player-bg{
+  position: absolute;
+  z-index: -1;
+  width: 100vw;
+  height: 100vh;
+  filter: blur(20px);
+}
+.ct-player{
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0,0,0,.35);
+}
+/* 封面 start */
+.ct-top{
+  height: calc(100vh - 102px - 50rpx);
+}
+.ct-top-swiper{
+  height: calc(100% - 44px);
+  padding: 40rpx 0;
+  box-sizing: border-box;
+}
+.ct-top-swiper .switch-swiper-view{
+  width: 100vw;
+  height: 100%;
+}
+.player-cover{
+  display: flex;
+  margin-top: -20rpx;
+  justify-content: space-around;
+  align-items: center;
+}
+.player-cover view{
+  position: relative;
+  width: 360rpx;
+  height: 360rpx;
+  padding: 100rpx;
+  text-align: center;
+  border-radius: 50%;
+  background: radial-gradient(
+    rgba(255, 255, 255, .1),
+    rgba(255, 255, 255, .1) 270rpx,
+    transparent 100%) no-repeat center/100%;
+}
+/* 封面旋转动画 */
+.play{
+  animation: coverRotate 25s linear infinite;
+}
+.pause{
+  animation-play-state: paused;
+}
+@keyframes coverRotate{
+  from{
+    transform: rotate(0deg);
+  }
+  to{
+    transform: rotate(360deg);
+  }
+}
+.player-cover .cover-bg{
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+}
+.player-cover .cover-photo{
+  display: block;
+  width: 360rpx;
+  height: 360rpx;
+  border-radius: 50%;
+}
+/* 封面 end */
+
+/* 歌词 start */
+.player-lyrics{
+  padding-top: 20rpx;
+}
+.player-lyrics swiper{
+  height: 100%;
+  text-align: center;
+  font-size: 16px;
+  color: #bfbfbf;
+}
+.player-lyrics swiper .on{
+  color: #fff;
+}
+/* 歌词 end */
+
+/* 操作菜单 start */
+.options-menu{
+  display: flex;
+  padding: 0 40rpx;
+  justify-content: space-around;
+}
+.options-menu image{
+  display: block;
+  width: 24px;
+  height: 24px;
+  padding: 20rpx;
+}
+/* 操作菜单 end */
+
+.ct-bottom{
+  position: fixed;
+  width: 100vw;
+  bottom: 50rpx;
+}
+
+/* 进度条 start */
+.slider{
+  display: flex;
+  padding: 0 40rpx;
+  align-items: center;
+}
+.slider slider{
+  flex: 1;
+  margin: 18px 12px;
+}
+.slider text{
+  font-size: 8px;
+  color: #bfbfbf;
+}
+/* 进度条 end */
+
+/* 播放菜单 start */
+.player-menu{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.player-menu image{
+  width: 22px;
+  height: 22px;
+  padding: 0 20rpx;
+}
+.player-menu image:nth-child(2n){
+  width: 24px;
+  height: 24px;
+}
+.player-menu image:nth-child(3){
+  width: 48px;
+  height: 48px;
+}
+/* 播放菜单 end */
+
+/* 更多菜单 start */
+.player-menu-more{
+  overflow-y: auto;
+  position: absolute;
+  bottom: 0;
+  z-index: 9;
+  width: 100vw;
+  max-height: 820rpx;
+  padding: 12px 0 8px;
+  background: #f3f3f3;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  transform: translateY(100%);
+  transition: .3s;
+}
+.player-menu-more .menu-header{
+  height: 40px;
+  line-height: 40px;
+  text-indent: 24rpx;
+  color: #616161;
+  font-size: 12px;
+}
+.player-menu-more .menu-header image{
+  width: 18px;
+  height: 18px;
+  padding: 10px 20rpx;
+}
+.player-menu-more .menu-item{
+  display: flex;
+  align-items: center;
+  height: 48px;
+  line-height: 48px;
+}
+.player-menu-more .menu-body image{
+  width: 22px;
+  height: 22px;
+  margin: 0 30rpx;
+}
+.player-menu-more text{
+  flex: 1;
+  height: 47px;
+  border-bottom: 1px solid #e8e8e8;
+}
+.player-menu-more .menu-item{
+  color: #c2c2c2;
+}
+/* 更多菜单 end */
+
+/* 播放列表 start */
+.player-playlist{
+  position: absolute;
+  bottom: 0;
+  z-index: 10;
+  width: 100vw;
+  background: #f3f3f3;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  transform: translateY(100%);
+  transition: .3s;
+}
+.player-playlist .list-header{
+  height: 51px;
+  line-height: 52px;
+  border-bottom: 1px solid #dbdbdb;
+}
+.list-header view image{
+  width: 18px;
+  height: 18px;
+  margin-top: -2px;
+  padding: 0 20rpx;
+  vertical-align: middle;
+}
+.list-header .player-mode{
+  padding-right: 20rpx;
+}
+.list-header .player-mode image{
+  margin-top: -5px;
+}
+.list-header image:nth-last-child(1){
+  border-left: 1px solid #ebebeb;
+}
+.player-playlist .list-body{
+  overflow-y: auto;
+  padding-left: 10px;
+  padding-bottom: 8px;
+  max-height: calc(800rpx - 60px);
+}
+.list-body .list-item{
+  display: flex;
+  align-items: center;
+  height: 46px;
+  line-height: 46px;
+  border-bottom: 1px solid #dbdbdb;
+}
+.list-item image:nth-child(1){
+  display: none;
+  width: 20px;
+  height: 20px;
+  margin-right: 16rpx;
+}
+.list-item image:nth-last-child(1){
+  width: 16px;
+  height: 16px;
+  padding: 0 20rpx;
+}
+.list-item view{
+  flex: 1;
+  font-size: 15px;
+}
+.list-item view text{
+  font-size: 10px;
+  color: #7a7a7a;
+}
+/* 当前播放歌曲 */
+.on image:nth-child(1){
+  display: block;
+}
+.on view,.on view text{
+  color: #e6473b;
+}
+/* 显示菜单 */
+.show{
+  transform: translateY(0%);
+}
+/* 播放列表 end */

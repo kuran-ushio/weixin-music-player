@@ -1,0 +1,5 @@
+<!--pages/start/index.wxml-->
+<view class="container">
+  <image src="/images/music.png"></image>
+  <button open-type="getUserInfo" bindgetuserinfo="getUserInfo">开启音乐之旅</button>
+</view>

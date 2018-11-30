@@ -1,0 +1,8 @@
+<!-- 底线 -->
+<template name="underscore">
+  <view class="underscore">
+    <view class="line">
+      <text>我是有底线的</text>
+    </view>
+  </view>
+</template>

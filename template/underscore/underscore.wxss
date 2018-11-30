@@ -1,0 +1,17 @@
+/* 底线 */
+.underscore{
+  height: 50px;
+  background: #f3f3f3;
+  color: #808080;
+}
+.underscore .line{
+  height: 50px;
+  text-align: center;
+  line-height: 50px;
+  font-size: 12px;
+  background: linear-gradient(#ddd, #ddd) no-repeat center/50% 1px;
+}
+.underscore text{
+  padding: 0 8px;
+  background: #f3f3f3;
+}

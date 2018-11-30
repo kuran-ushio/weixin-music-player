@@ -1,0 +1,17 @@
+@import "/template/sheet/sheet.wxss";
+@import "/template/public/footer-player.wxss";
+@import "/template/underscore/underscore.wxss";
+
+/* pages/sheet/list.wxss */
+.container{
+  position: relative;
+}
+.sheet-list{
+  height: 100vh;
+  margin-top: 0;
+}
+.sheet-scroll-view{
+  display: flex;
+  flex-wrap: wrap;
+  padding: 6px;
+}

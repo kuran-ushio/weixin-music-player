@@ -1,0 +1,19 @@
+// 歌单跳转url
+function sheetUrl(sheet) {
+  return '/pages/sheet/list?id=' + sheet.id + '&name=' + sheet.name;
+}
+
+// 歌曲进度条时间格式转换
+function toSongTime(n) {
+  return n && addZero(~~(n / 60)) + ':' + addZero(Math.ceil(n % 60));
+}
+
+// 补零
+function addZero(n) {
+  return n < 10 ? '0' + n : n + '';
+} 
+
+module.exports = {
+  sheetUrl: sheetUrl,
+  toSongTime: toSongTime
+}
